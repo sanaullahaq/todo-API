@@ -1,0 +1,30 @@
+We will use token verification so that if a user want's to send his token instead of his username and password
+cause maybe there is a risk of security like his username/password will not go through the https request to will not be saved in right place
+if somehow someone got his token ,then the admin can shut-down this token and the user can apply for new token
+
+for this we have bring some modification in the settings.py
+
+> After adding the 'rest_framework.authtoken' to the installed app in the settings we hv to makemigrations nad migrate cz this will add and extra model to db to link every user with token.
+
+> Since we have used
+
+    permission_classes = [permissions.IsAuthenticated]
+
+    so we have to put the below codes into the settings.py after installed app so that all isAuthenticated request will goto this so that the authentication can be done TokenAuthentication
+    in short any of the authentication call we will use this
+
+    REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
+
+> if we add session authentication to the list like below, we can use session authentication into the browser as well along with token authentication into the API
+
+        REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+
+    ]
+}

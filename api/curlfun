@@ -1,0 +1,22 @@
+ ##Request##
+ curl   -X "POST" "http://localhost:8000/api/posts" \
+        -H 'Content-Type: application/json' \
+        -u 'sana:12345678' \
+        -d $'{
+        "tittle": "Cool Stuff",
+        "url": "http://sana.com"
+        }'
+
+ curl -X "POST" http://127.0.0.1:8000/api/signup/ -H 'Content-Type: application/json' -d '{"username": "sana", "password":"12345678"}'
+     > we have to define -X cz this is POST request
+     > -H means that we are specifying that we are sending json
+     > -d means data
+
+ curl -X "POST" http://127.0.0.1:8000/api/login/ -H 'Content-Type: application/json' -d '{"username": "sanaullahaq1", "password":"12345678"}'
+ curl http://127.0.0.1:8000/api/todos/ -H 'Authorization: Token UserToken'
+ curl -X "PUT" http://127.0.0.1:8000/api/todos/13/complete/ -H 'Content-Type: application/json' -H 'Authorization: Token UserToken'
+
+ /*
+ Here if you have POST condition in our function or class we have to send POST request by curl
+ or if we have json parser we have to send Content type application/json by curl
+ */

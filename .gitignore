@@ -1,0 +1,7 @@
+/venv/*
+/.idea/*
+*.pyc
+__pycache__
+local_settings.py
+admin_user_name_and_password.txt
+completed_my_version.html
